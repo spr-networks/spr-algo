@@ -243,6 +243,25 @@ export default function Plugin() {
       <ListHeader
         title="Algo VPN"
         description="Deploy a personal WireGuard VPN server to DigitalOcean using Trail of Bits' Algo"
+        mark="av"
+        status={
+          deploy?.State === 'success'
+            ? 'Deployed'
+            : running
+            ? 'Deploying'
+            : deploy?.State === 'failed'
+            ? 'Failed'
+            : 'Not deployed'
+        }
+        statusAction={
+          deploy?.State === 'success'
+            ? 'success'
+            : running
+            ? 'warning'
+            : deploy?.State === 'failed'
+            ? 'error'
+            : 'muted'
+        }
       >
         <Button size="sm" onPress={save}>
           <ButtonText>Save</ButtonText>
