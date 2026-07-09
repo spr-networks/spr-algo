@@ -1,0 +1,7 @@
+configs/
+state/
+node_modules
+frontend/build
+code/algo_plugin
+__pycache__/
+.DS_Store

@@ -1,0 +1,16 @@
+{
+  "Name": "spr-algo",
+  "ComposeFilePath": "plugins/user/spr-algo/docker-compose.yml",
+  "UnixPath": "/state/plugins/spr-algo/socket",
+  "URI": "spr-algo",
+  "HasUI": true,
+  "Icon": "BlocksIcon",
+  "SandboxedUI": false,
+  "InstallTokenPath": "/configs/plugins/spr-algo/api-token",
+  "NetworkCapabilities": {
+    "Interface": "spr-algo",
+    "Policies": ["wan", "dns"],
+    "Groups": []
+  },
+  "Enabled": true
+}

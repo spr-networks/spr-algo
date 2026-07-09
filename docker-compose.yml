@@ -1,0 +1,30 @@
+version: '3.4'
+
+x-labels:
+  &default-labels
+  # constant (not $CI) so digests are reproducible across CI/local
+  org.supernetworks.ci: "true"
+  org.supernetworks.version: ${RELEASE_VERSION:-latest}${RELEASE_CHANNEL:-}
+
+services:
+  spr-algo:
+    container_name: spr-algo
+    image: ghcr.io/spr-networks/spr-algo:${RELEASE_VERSION:-latest}${RELEASE_CHANNEL:-}
+    build:
+      context: "${BUILDCTX:-.}"
+      labels: *default-labels
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      algonet:
+    volumes:
+      - "${SUPERDIR}./state/plugins/spr-algo:/state/plugins/spr-algo"
+      - "${SUPERDIR}./configs/base/config.sh:/configs/base/config.sh:ro"
+      - "${SUPERDIR}./configs/plugins/spr-algo:/configs/spr-algo"
+
+# The bridge name must match NetworkCapabilities.Interface in plugin.json
+# and the Interface used by install.sh's PUT /firewall/custom_interface.
+networks:
+  algonet:
+    driver_opts:
+      com.docker.network.bridge.name: spr-algo
