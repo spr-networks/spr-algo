@@ -4,7 +4,7 @@
   "UnixPath": "/state/plugins/spr-algo/socket",
   "URI": "spr-algo",
   "HasUI": true,
-  "Icon": "BlocksIcon",
+  "Icon": "ShieldCheck",
   "SandboxedUI": false,
   "InstallTokenPath": "/configs/plugins/spr-algo/api-token",
   "NetworkCapabilities": {

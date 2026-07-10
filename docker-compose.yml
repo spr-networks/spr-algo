@@ -26,5 +26,6 @@ services:
 # and the Interface used by install.sh's PUT /firewall/custom_interface.
 networks:
   algonet:
+    name: spr-algo
     driver_opts:
       com.docker.network.bridge.name: spr-algo
