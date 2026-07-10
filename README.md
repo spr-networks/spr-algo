@@ -1,5 +1,7 @@
 # spr-algo
 
+<img width="850" alt="spr-algo UI preview" src="docs/screenshot.png" />
+
 Deploy a personal [Algo VPN](https://github.com/trailofbits/algo) (WireGuard)
 server to your own cloud account, straight from your SPR router.
 
