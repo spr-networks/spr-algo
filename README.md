@@ -87,6 +87,19 @@ All endpoints are served on the plugin unix socket and proxied by SPR at
 | GET | `/configs` | List generated WireGuard profiles (`[{Server, User, File, HasQR}]`) |
 | GET | `/configs/{server}/{user}.conf` | Download a WireGuard profile (text/plain) |
 | GET | `/configs/{server}/{user}.conf.png` | QR code for the profile, as JSON `{"PNGBase64": …}` |
+| GET | `/topology` | Plugin contribution to SPR's topology view (`{"Nodes":[…],"Edges":[…]}`) |
+
+### Topology
+
+The plugin declares `"HasTopology": true`, so SPR merges its graph into the
+router topology view. `GET /topology` always includes the root anchor node
+(`{"ID":"root","ConnType":"wireguard","Online":true}`); after at least one
+successful deploy it adds one `vpn-server` node per deployed Algo server
+(named `<server> (<region>)`, `IP` = instance address, `Online` = whether the
+most recent finished deploy succeeded) and one `profile` node per generated
+WireGuard profile (profiles are credentials, not live devices, so they are
+always offline). Edges run `profile → server → root` on layer `vpn`. With no
+successful deploy the graph is the root node only.
 
 ### Configuration reference (`configs/plugins/spr-algo/config.json`, 0600)
 

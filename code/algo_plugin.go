@@ -230,6 +230,7 @@ func main() {
 	mux.HandleFunc("GET /deploy/status", handleDeployStatus)
 	mux.HandleFunc("GET /deploys", handleDeploys)
 	mux.HandleFunc("GET /configs", handleListVPNConfigs)
+	mux.HandleFunc("GET /topology", handleTopology)
 	mux.HandleFunc("GET /configs/{server}/{file}", handleDownloadVPNConfig)
 
 	// UI (index.html is fetched via the socket and shown as iframe srcDoc)
