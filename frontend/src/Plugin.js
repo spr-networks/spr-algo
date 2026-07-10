@@ -538,7 +538,7 @@ export default function Plugin() {
       <Page>
         <ListHeader
           title="Algo VPN"
-          description="Deploy a personal WireGuard VPN server to DigitalOcean with Trail of Bits' Algo"
+          description="Deploy a personal WireGuard VPN server to DigitalOcean with Trail of Bits' Algo · SPR group: vpn-algo"
           mark="av"
         />
         <Card>
@@ -596,7 +596,7 @@ export default function Plugin() {
       <Page>
         <ListHeader
           title="Algo VPN"
-          description="Deploy a personal WireGuard VPN server to DigitalOcean with Trail of Bits' Algo"
+          description="Deploy a personal WireGuard VPN server to DigitalOcean with Trail of Bits' Algo · SPR group: vpn-algo"
           mark="av"
           status="Not set up"
           statusAction="muted"
@@ -678,7 +678,7 @@ export default function Plugin() {
     <Page>
       <ListHeader
         title="Algo VPN"
-        description="Deploy a personal WireGuard VPN server to DigitalOcean with Trail of Bits' Algo"
+        description="Deploy a personal WireGuard VPN server to DigitalOcean with Trail of Bits' Algo · SPR group: vpn-algo"
         mark="av"
         status={headerStatus}
         statusAction={headerAction}

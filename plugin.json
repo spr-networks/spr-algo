@@ -11,7 +11,7 @@
   "NetworkCapabilities": {
     "Interface": "spr-algo",
     "Policies": ["wan", "dns"],
-    "Groups": []
+    "Groups": ["vpn-algo"]
   },
   "Enabled": true
 }

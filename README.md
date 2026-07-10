@@ -137,9 +137,10 @@ persist across container updates.
 
 ## Security model
 
-- **No published ports, no capabilities.** The container needs only outbound
-  WAN + DNS (`NetworkCapabilities.Policies: ["wan","dns"]`) to reach the
-  DigitalOcean API and the new droplet over SSH. It creates no tunnels or
+- **No published ports, no capabilities.** The container gets only outbound
+  WAN + DNS (`NetworkCapabilities.Policies: ["wan","dns"]`) plus the
+  `vpn-algo` SPR group. It uses egress to reach the DigitalOcean API and the
+  new droplet over SSH. It creates no tunnels or
   firewall rules on the router itself, so there is no `NET_ADMIN`, no
   `/dev/net/tun`, and `no-new-privileges` is set. The VPN it deploys runs in
   your cloud account, not on the router.

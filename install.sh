@@ -32,11 +32,12 @@ CONTAINER_IP=$(docker inspect --format '{{range .NetworkSettings.Networks}}{{.IP
 API=127.0.0.1
 
 # Grant the plugin container outbound internet + DNS (it must reach the
-# DigitalOcean API and the new droplet over SSH). No lan/api access.
+# DigitalOcean API and the new droplet over SSH). No lan/api access; the
+# interface is isolated in the vpn-algo group.
 curl "http://${API}/firewall/custom_interface" \
   -H "Authorization: Bearer ${SPR_API_TOKEN}" \
   -X 'PUT' \
-  --data-raw "{\"SrcIP\":\"${CONTAINER_IP}\",\"Interface\":\"spr-algo\",\"Policies\":[\"wan\",\"dns\"]}"
+  --data-raw "{\"SrcIP\":\"${CONTAINER_IP}\",\"Interface\":\"spr-algo\",\"Policies\":[\"wan\",\"dns\"],\"Groups\":[\"vpn-algo\"]}"
 
 docker compose restart
 echo "spr-algo installed. Open the SPR UI -> Plugins -> spr-algo to configure."
