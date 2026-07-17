@@ -13,7 +13,7 @@ import (
 	"time"
 )
 
-var UNIX_PLUGIN_LISTENER = "/state/plugins/spr-algo/socket"
+var UNIX_PLUGIN_LISTENER = "/run/spr-krun-plugin/spr-algo.sock"
 
 const logTailBytes = 16 * 1024
 

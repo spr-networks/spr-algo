@@ -1,6 +1,6 @@
 {
   "Name": "spr-algo",
-  "ComposeFilePath": "plugins/user/spr-algo/docker-compose.yml",
+  "ComposeFilePath": "plugins/user/spr-algo/docker-compose-krun.yml",
   "UnixPath": "/state/plugins/spr-algo/socket",
   "URI": "spr-algo",
   "HasUI": true,
@@ -9,7 +9,8 @@
   "SandboxedUI": false,
   "InstallTokenPath": "/configs/plugins/spr-algo/api-token",
   "NetworkCapabilities": {
-    "Interface": "spr-algo",
+    "Interface": "kalgo0",
+    "DeviceMAC": "02:53:50:52:4b:03",
     "Policies": ["wan", "dns"],
     "Groups": ["vpn-algo"]
   },
