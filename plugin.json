@@ -1,6 +1,6 @@
 {
   "Name": "spr-algo",
-  "ComposeFilePath": "plugins/user/spr-algo/docker-compose-krun.yml",
+  "Runtime": "kvm",
   "UnixPath": "/state/plugins/spr-algo/socket",
   "URI": "spr-algo",
   "HasUI": true,
