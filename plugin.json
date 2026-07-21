@@ -9,7 +9,7 @@
   "SandboxedUI": false,
   "InstallTokenPath": "/configs/plugins/spr-algo/api-token",
   "NetworkCapabilities": {
-    "Interface": "kalgo0",
+    "Interface": "spr-algo",
     "DeviceMAC": "02:53:50:52:4b:03",
     "Policies": ["wan", "dns"],
     "Groups": ["vpn-algo"]

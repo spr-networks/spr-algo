@@ -26,12 +26,12 @@ chmod 700 "$SUPERDIR/configs/plugins/spr-algo"
 # Region/Users/DOToken into configs/plugins/spr-algo/config.json).
 
 KRUN_MAC="02:53:50:52:4b:03"
-KRUN_TAP="kalgo0"
+PLUGIN_INTERFACE="spr-algo"
 curl --fail-with-body --silent --show-error "http://127.0.0.1/device?identity=${KRUN_MAC}" \
   -H "Authorization: Bearer ${SPR_API_TOKEN}" -H "Content-Type: application/json" \
   -X PUT --data-raw "{\"MAC\":\"${KRUN_MAC}\",\"Name\":\"spr-algo\",\"Policies\":[\"wan\",\"dns\"],\"Groups\":[\"vpn-algo\"]}" >/dev/null
-if ! sudo nft get element inet filter dhcp_access "{ \"${KRUN_TAP}\" . ${KRUN_MAC} }" >/dev/null 2>&1; then
-  sudo nft add element inet filter dhcp_access "{ \"${KRUN_TAP}\" . ${KRUN_MAC} : accept }"
+if ! sudo nft get element inet filter dhcp_access "{ \"${PLUGIN_INTERFACE}\" . ${KRUN_MAC} }" >/dev/null 2>&1; then
+  sudo nft add element inet filter dhcp_access "{ \"${PLUGIN_INTERFACE}\" . ${KRUN_MAC} : accept }"
 fi
 
 docker compose -f docker-compose-kvm.yml build
@@ -52,7 +52,7 @@ API=127.0.0.1
 curl "http://${API}/firewall/custom_interface" \
   -H "Authorization: Bearer ${SPR_API_TOKEN}" \
   -X 'PUT' \
-  --data-raw "{\"SrcIP\":\"${CONTAINER_IP}\",\"Interface\":\"${KRUN_TAP}\",\"Policies\":[\"wan\",\"dns\"],\"Groups\":[\"vpn-algo\"]}"
+  --data-raw "{\"SrcIP\":\"${CONTAINER_IP}\",\"Interface\":\"${PLUGIN_INTERFACE}\",\"Policies\":[\"wan\",\"dns\"],\"Groups\":[\"vpn-algo\"]}"
 
 docker compose -f docker-compose-kvm.yml restart
 echo "spr-algo installed. Open the SPR UI -> Plugins -> spr-algo to configure."
