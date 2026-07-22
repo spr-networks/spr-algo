@@ -7,7 +7,6 @@
   "HasTopology": true,
   "Icon": "ShieldCheck",
   "SandboxedUI": false,
-  "InstallTokenPath": "/configs/plugins/spr-algo/api-token",
   "NetworkCapabilities": {
     "Interface": "spr-algo",
     "DeviceMAC": "02:53:50:52:4b:03",
