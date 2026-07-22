@@ -18,7 +18,7 @@ QR `.png`) for download.
 
 The plugin UI is embedded in the SPR interface under Plugins (served as an
 iframe from the plugin's unix socket). The backend is a Go daemon listening
-only on `/state/plugins/spr-algo/socket` — no host ports.
+only on `/state/plugins/spr-algo/socket.sock` — no host ports.
 
 This plugin was built for the SPR plugin wishlist
 ([spr-networks/super#341](https://github.com/spr-networks/super/issues/341)).
